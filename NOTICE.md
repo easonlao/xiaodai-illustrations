@@ -12,7 +12,7 @@ AIGC:
 
 小呆正文配图（xiaodai-illustrations）是一个 AI-agent 技能，改编自 Ian 的小黑正文配图项目。
 
-本技能中使用的示例图片（`examples/images/` 和 `assets/` 目录下的 PNG 文件）由 Ian 生成，作为风格校准参考图。
+本技能中使用的参考图片（`xiaodai-illustrations/assets/` 目录下的 PNG 文件）由 Ian 生成，作为风格校准参考图。
 
 原始角色「小黑」是 Ian 中文正文配图的视觉语言组成部分。本技能将其替换为「小呆」IP。
 
@@ -25,5 +25,3 @@ AIGC:
 - Website: <https://www.ianneo.xyz/>
 
 ---
-
-> 本内容由 Coze AI 生成，请遵循相关法律法规及《人工智能生成合成内容标识办法》使用与传播。
