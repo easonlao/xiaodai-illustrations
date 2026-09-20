@@ -85,9 +85,11 @@ def check_status():
             # 校验核心文件
             skill_md = target_path / "SKILL.md"
             platforms_ag = target_path / "platforms" / "antigravity.md"
+            platforms_agents = target_path / "platforms" / "AGENTS.md"
             status_skill = "[OK]" if skill_md.exists() else "[MISSING]"
             status_ag = "[OK]" if platforms_ag.exists() else "[MISSING]"
-            print(f"  核心文件: SKILL.md {status_skill}, antigravity.md {status_ag}")
+            status_agents = "[OK]" if platforms_agents.exists() else "[MISSING]"
+            print(f"  核心文件: SKILL.md {status_skill}, antigravity.md {status_ag}, AGENTS.md {status_agents}")
 
 
 def remove_target(target_path: Path, dry_run: bool = False):

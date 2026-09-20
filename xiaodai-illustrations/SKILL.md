@@ -34,7 +34,7 @@ description: 围绕小呆角色生成手绘、怪诞、纯白、低科技隐喻�
 - `references/qa-checklist.md`：生成后检查和迭代规则。
 - `references/scene-modes.md`：不同场景的最小差异约束。
 - `platforms/antigravity.md`：在 Google Antigravity 环境中必读，约束 `generate_image`、参考图绑定、`view_file` 质检与 Carousel 工件交付。
-- `platforms/claude.md`：在 Claude Code / 终端 Agent 环境中必读，约束 MCP 工具或命令行生图流程。
+- `platforms/AGENTS.md`：在通用 Agent 环境（Claude Code, Codex, Cursor, 命令行 Agent）中必读，约束 MCP 工具或提示词交付流程。
 - `assets/examples/`：只作低频视觉校准，不进入默认生成路径。不要照抄这些案例的构图、物件或标注。
 
 ## 工作流
@@ -134,7 +134,7 @@ scene decision 的语气要像“这次任务的判断结果”，不是“这�
 
 生图时根据当前宿主环境调用相应工具：
 - **在 Google Antigravity 环境下**：必读 `platforms/antigravity.md`，使用原生 `generate_image`，强制在 `ImagePaths` 中传入标准立绘 `assets/standard-xiaodai.png` 绝对路径锁定角色特征，并将 `canvas_ratio` 映射为 `AspectRatio` 原生枚举。
-- **在 Claude Code / 终端 Agent 环境下**：必读 `platforms/claude.md`，调用环境配置的生图 MCP 工具或命令行生图脚本。
+- **在通用 Agent 环境下（Claude Code / Codex / Cursor / 终端 Agent）**：必读 `platforms/AGENTS.md`，调用环境配置的生图 MCP 工具或命令行生图脚本。
 - **纯提示词模式**：若宿主环境未接入生图工具，则直接输出格式化英文提示词与场景参数。
 
 每张图只讲一个核心结构。生图时优先使用 `references/user-ip.md` 中的标准参考图，确保 IP 特征一致。

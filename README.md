@@ -101,9 +101,9 @@ AIGC:
 │   │   └── openai.yaml            # Agent 接口配置
 │   ├── platforms/                 # 宿主平台适配层
 │   │   ├── antigravity.md         # Google Antigravity 原生适配指引
-│   │   └── claude.md              # Claude Code / 终端 Agent 适配指引
+│   │   └── AGENTS.md              # 通用 Agent (Claude Code / Codex / Cursor / 终端) 适配契约
 │   ├── assets/                    # 参考图资源
-│   │   └── standard-xiaodai.png   # 小呆 IP 标准参考图
+│   │   ├── standard-xiaodai.png   # 小呆 IP 标准参考图
 │   │   └── examples/              # 14 张风格校准参考图
 │   └── references/                # 技能参考文档
 │       ├── style-dna.md           # 风格 DNA
@@ -131,11 +131,15 @@ python install.py --target antigravity --mode copy
 ```
 *Antigravity 专有能力：* 自动绑定 `generate_image`、通过 `ImagePaths` 注入标准立绘防止角色变形、使用 `view_file` 跑 QA 视觉质检、以及使用 Artifacts ````carousel```` 进行长文 Shot List 轮播交付。详见 `xiaodai-illustrations/platforms/antigravity.md`。
 
-### 2. Claude Code
+### 2. 通用 Agent (Claude Code / Codex / Cursor / 终端 CLI)
 ```bash
+# 部署到 Claude Code 全局技能目录
 python install.py --target claude --mode link
+
+# 或部署到自定义 Agent 工具路径
+python install.py --target custom --path /path/to/agent/skills/xiaodai-illustrations
 ```
-部署到 `~/.claude/skills/xiaodai-illustrations`，配合生图 MCP 服务或终端脚本使用。详见 `xiaodai-illustrations/platforms/claude.md`。
+通用契约涵盖 MCP 生图调用、本地脚本与纯提示词输出降级方案，详见 `xiaodai-illustrations/platforms/AGENTS.md`。
 
 ### 3. 安装状态检查与卸载
 ```bash
