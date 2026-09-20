@@ -93,12 +93,17 @@ AIGC:
 ├── README.md                  # 项目说明
 ├── LICENSE                    # MIT 开源许可
 ├── NOTICE.md                  # 版权与声明
+├── install.py                 # 跨平台多 Agent 一键安装与同步脚本
 ├── .gitignore
 ├── xiaodai-illustrations/      # 技能主目录
 │   ├── SKILL.md                  # 技能定义与核心指令
 │   ├── agents/
 │   │   └── openai.yaml            # Agent 接口配置
+│   ├── platforms/                 # 宿主平台适配层
+│   │   ├── antigravity.md         # Google Antigravity 原生适配指引
+│   │   └── claude.md              # Claude Code / 终端 Agent 适配指引
 │   ├── assets/                    # 参考图资源
+│   │   └── standard-xiaodai.png   # 小呆 IP 标准参考图
 │   │   └── examples/              # 14 张风格校准参考图
 │   └── references/                # 技能参考文档
 │       ├── style-dna.md           # 风格 DNA
@@ -111,6 +116,36 @@ AIGC:
 └── NOTICE.md                  # 版权与声明
 ```
 
+## 多 Agent 支持与一键安装
+
+本项目设计为**跨平台 Agent 技能**。通过根目录的 `install.py`，可以一键将技能部署或软链接至不同 Agent 环境中：
+
+### 1. Google Antigravity
+Antigravity 原生支持多模态看图与垫图，使用本仓库的专属适配层可获得最佳 IP 锁定效果：
+```bash
+# 推荐开发模式：创建软链接/Junction，修改仓库即时在 Antigravity 生效
+python install.py --target antigravity --mode link
+
+# 独立副本模式：将完整文件复制到全局技能目录 (~/.gemini/config/skills/)
+python install.py --target antigravity --mode copy
+```
+*Antigravity 专有能力：* 自动绑定 `generate_image`、通过 `ImagePaths` 注入标准立绘防止角色变形、使用 `view_file` 跑 QA 视觉质检、以及使用 Artifacts ````carousel```` 进行长文 Shot List 轮播交付。详见 `xiaodai-illustrations/platforms/antigravity.md`。
+
+### 2. Claude Code
+```bash
+python install.py --target claude --mode link
+```
+部署到 `~/.claude/skills/xiaodai-illustrations`，配合生图 MCP 服务或终端脚本使用。详见 `xiaodai-illustrations/platforms/claude.md`。
+
+### 3. 安装状态检查与卸载
+```bash
+# 检查当前各 Agent 环境下的安装/链接状态与文件完整性
+python install.py --check
+
+# 卸载指定环境中的技能
+python install.py --target antigravity --uninstall
+```
+
 ## 使用方式
 
 这个仓库更适合作为一套技能源码与提示词底座使用，而不是某个单一平台上的现成成品。
@@ -119,7 +154,7 @@ AIGC:
 
 - 直接在支持技能触发的 Agent 环境中使用仓库里的 `xiaodai-illustrations/SKILL.md`
 - 把它作为上层场景 skill 的共用底座
-- 仓库内真正的技能主入口是 `xiaodai-illustrations/SKILL.md` 和 `xiaodai-illustrations/agents/openai.yaml`
+- 仓库内真正的技能主入口是 `xiaodai-illustrations/SKILL.md`、`xiaodai-illustrations/agents/openai.yaml` 以及对应的 `platforms/*.md`
 
 如果你的生图平台支持 `ref_images`、character reference 或 image weight，请同时上传 `xiaodai-illustrations/assets/standard-xiaodai.png` 作为唯一角色参考图，用它来锁定小呆的外形一致性。
 

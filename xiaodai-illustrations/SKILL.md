@@ -33,6 +33,8 @@ description: 围绕小呆角色生成手绘、怪诞、纯白、低科技隐喻�
 - `references/prompt-template.md`：通用提示词模板，等待当前场景传入画幅和场景参数。
 - `references/qa-checklist.md`：生成后检查和迭代规则。
 - `references/scene-modes.md`：不同场景的最小差异约束。
+- `platforms/antigravity.md`：在 Google Antigravity 环境中必读，约束 `generate_image`、参考图绑定、`view_file` 质检与 Carousel 工件交付。
+- `platforms/claude.md`：在 Claude Code / 终端 Agent 环境中必读，约束 MCP 工具或命令行生图流程。
 - `assets/examples/`：只作低频视觉校准，不进入默认生成路径。不要照抄这些案例的构图、物件或标注。
 
 ## 工作流
@@ -128,7 +130,12 @@ scene decision 的语气要像“这次任务的判断结果”，不是“这�
 
 ### 3. 生成时先保住角色和清楚表达，再谈场景差异
 
-如果用户明确要求"生成 / 输出 / 做图 / 帮我生成"，不要停下来等确认；用内置 `image_gen` 每张单独生成。不要把多张图拼在一张里。
+如果用户明确要求"生成 / 输出 / 做图 / 帮我生成"，不要停下来等确认；每张单独生成，不要把多张图拼在一张里。
+
+生图时根据当前宿主环境调用相应工具：
+- **在 Google Antigravity 环境下**：必读 `platforms/antigravity.md`，使用原生 `generate_image`，强制在 `ImagePaths` 中传入标准立绘 `assets/standard-xiaodai.png` 绝对路径锁定角色特征，并将 `canvas_ratio` 映射为 `AspectRatio` 原生枚举。
+- **在 Claude Code / 终端 Agent 环境下**：必读 `platforms/claude.md`，调用环境配置的生图 MCP 工具或命令行生图脚本。
+- **纯提示词模式**：若宿主环境未接入生图工具，则直接输出格式化英文提示词与场景参数。
 
 每张图只讲一个核心结构。生图时优先使用 `references/user-ip.md` 中的标准参考图，确保 IP 特征一致。
 
@@ -170,7 +177,7 @@ scene decision 的语气要像“这次任务的判断结果”，不是“这�
 
 ### 4. 检查与迭代
 
-生成后检查 `references/qa-checklist.md`。如果出现以下问题，优先重生成或局部编辑：
+生成后对照 `references/qa-checklist.md` 进行检查。若宿主支持多模态视觉查看（如 Antigravity 的 `view_file`），生成后主动调用看图工具自检。如果出现以下问题，优先重生成或通过图生图（Image-to-Image）局部编辑：
 
 - 小呆只是装饰
 - 画面太满
@@ -196,6 +203,10 @@ outputs/<article-slug>-illustrations/
 ```
 
 保留原始生成文件，不要覆盖已有输出，除非用户明确要求替换。
+
+在支持工件展示的宿主环境（如 Antigravity）中：
+- 为长文配图（Shot List）交付时，在脑区创建交付工件并使用 ````carousel```` 语法组织成轮播画廊，方便用户翻页审阅；
+- 在 Obsidian / OrbitOS 笔记库中工作时，附带 `![[01-topic-name.png]]` 双链嵌入语法方便用户回填。
 
 ## 输出口径
 
