@@ -11,10 +11,9 @@
 
 - **主体结构**：一个纯手绘、实体亮红色的火焰形状剪影。
 - **身体拓扑**：整个红色火焰剪影本身就是完整身体，不存在“火焰头 + 独立红色躯干”的两段式结构。
-- **头部五官**：脸上只有一对微小的白色圆点眼睛，没有嘴巴、鼻子、耳朵、眉毛。
-- **眼睛几何与对称性**：两只眼睛必须是**完全水平平行、等高、大小一致的正圆形微小白点**（如同水平的一对小圆点 `··`）。
-- **眼睛视线机制**：小呆没有瞳孔。视线焦点与朝向**完全由身体与头部的整体倾角表达**，严禁用形变眼睛或移动单只眼睛去表达视线。
-- **面部避障**：两只眼睛必须清晰暴露在上半部面部，手中持握的物件、机械或手臂**严禁遮挡、重叠或压迫眼睛**。
+- **头部五官**：脸上只有一对微小的简笔眼睛，没有嘴巴、鼻子、耳朵、眉毛。
+- **眼睛真实拓扑（关键特征）**：两只眼睛由**白色小圆圈/椭圆底、中间各带一颗微小的黑色圆点眼珠**构成（如同极简卡通的黑白眼珠 `(•) (•)`）。黑眼珠赋予小呆标志性的宁静、专注、冷面幽默的眼神。严禁漏画黑色眼珠变成空洞的纯白斑点。
+- **面部避障**：两只眼睛必须清晰暴露在上半部面部，手中持握的物件、机械或手臂严禁遮挡、重叠或压迫眼睛。
 - **肢体细节**：四肢为纤细的黑色火柴人线条，没有衣物、鞋子、眼镜等具象细节。
 - **线条风格**：轮廓带有轻微不规则抖动，保持手绘白板草图感。
 - **表情神态**：眼神宁静、专注、温和，不做戏剧化表情。
@@ -104,12 +103,10 @@
 - do not stylize the character beyond the reference
 - no separate torso, no neck, no chest shape
 - do not split the red body into upper and lower parts
-- do not remove the eyes
-- eyes are strictly two tiny, symmetrical, level, horizontally paired circular white dots
-- do not place one eye higher than the other, do not draw asymmetrical eyes
-- do not slant, stretch, or distort the white eye dots into ovals or diagonal lines
-- no pupils, gaze direction is conveyed entirely by whole-body tilt, never by deforming the eye dots
-- do not allow props, tools, or arms to overlap, cut across, or obstruct the two eye dots
+- eyes consist of two small white circular eyes, each with a tiny solid black dot pupil in the center (classic minimalist cartoon eyes with black pupils inside white circles)
+- must have small black dot pupils inside the white eyes, never draw pupil-less blank white holes
+- eyes are level, symmetrical, and horizontally paired
+- do not allow props, tools, or arms to overlap, cut across, or obstruct the eyes
 - limbs remain thin black stick lines
 
 还可以加入否定式硬约束：
@@ -124,7 +121,7 @@
 - not a children's illustration character
 - not a flame head on top of a body
 - not a faceless flame silhouette
-- not asymmetrical or slanted eyes, not oval or elongated eye shapes, not one eye higher than the other
+- not blank white eyes without pupils, not pupil-less eyes, not hollow white patches
 
 ## 判错标准
 
@@ -133,7 +130,8 @@
 - 出现独立躯干、胸腔、腹部或脖子。
 - 红色本体被画成“头 + 身体”两段，或读起来像上下分段的葫芦形身体。
 - 黑色四肢不是直接长在火焰本体边缘，而是接在额外的人形身体上。
-- 两个白点眼睛缺失、只剩一个、或被弱化到几乎不可见。
+- 眼睛缺少黑色眼珠，变成空洞失神的纯白斑点。
+- 眼睛缺失、只剩一个、或被弱化到几乎不可见。
 - 表情开始可爱化、吉祥物化。
 - 火焰本体明显偏成水滴人、卡通 mascot 或圆润 chibi。
 
