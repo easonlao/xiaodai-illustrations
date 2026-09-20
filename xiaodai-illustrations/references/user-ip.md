@@ -12,7 +12,9 @@
 - **主体结构**：一个纯手绘、实体亮红色的火焰形状剪影。
 - **身体拓扑**：整个红色火焰剪影本身就是完整身体，不存在“火焰头 + 独立红色躯干”的两段式结构。
 - **头部五官**：脸上只有一对微小的白色圆点眼睛，没有嘴巴、鼻子、耳朵、眉毛。
-- **眼睛可见性**：这对微小白点眼睛必须清晰存在、可见、成对出现。
+- **眼睛几何与对称性**：两只眼睛必须是**完全水平平行、等高、大小一致的正圆形微小白点**（如同水平的一对小圆点 `··`）。
+- **眼睛视线机制**：小呆没有瞳孔。视线焦点与朝向**完全由身体与头部的整体倾角表达**，严禁用形变眼睛或移动单只眼睛去表达视线。
+- **面部避障**：两只眼睛必须清晰暴露在上半部面部，手中持握的物件、机械或手臂**严禁遮挡、重叠或压迫眼睛**。
 - **肢体细节**：四肢为纤细的黑色火柴人线条，没有衣物、鞋子、眼镜等具象细节。
 - **线条风格**：轮廓带有轻微不规则抖动，保持手绘白板草图感。
 - **表情神态**：眼神宁静、专注、温和，不做戏剧化表情。
@@ -35,6 +37,8 @@
 - 四肢接在额外的人形身体上，而不是接在火焰边缘。
 - 火焰轮廓被改成水滴人、吉祥物、Q版人偶、贴纸人。
 - 出现嘴巴、眉毛、腮红、卖萌表情。
+- 两只白眼一高一低、不对称、倾斜拉伸为椭圆或斜线（高低眼/斜眼）。
+- 道具或手臂横切、遮挡两颗白点眼睛。
 
 ## 性格与定位
 
@@ -101,9 +105,11 @@
 - no separate torso, no neck, no chest shape
 - do not split the red body into upper and lower parts
 - do not remove the eyes
-- no mascot-like roundness
-- no cute expression
-- eyes are only two tiny white dots
+- eyes are strictly two tiny, symmetrical, level, horizontally paired circular white dots
+- do not place one eye higher than the other, do not draw asymmetrical eyes
+- do not slant, stretch, or distort the white eye dots into ovals or diagonal lines
+- no pupils, gaze direction is conveyed entirely by whole-body tilt, never by deforming the eye dots
+- do not allow props, tools, or arms to overlap, cut across, or obstruct the two eye dots
 - limbs remain thin black stick lines
 
 还可以加入否定式硬约束：
@@ -118,6 +124,7 @@
 - not a children's illustration character
 - not a flame head on top of a body
 - not a faceless flame silhouette
+- not asymmetrical or slanted eyes, not oval or elongated eye shapes, not one eye higher than the other
 
 ## 判错标准
 
